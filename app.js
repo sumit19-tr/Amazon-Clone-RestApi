@@ -1,6 +1,8 @@
 let express = require('express');
 let app = express();
-let port = 9041;
+let dotenv = require("dotenv");
+dotenv.config();
+let port = process.env.PORT || 9041;
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
 let bodyParser = require('body-parser');
