@@ -2,11 +2,13 @@ let express = require('express');
 let app = express();
 let dotenv = require("dotenv");
 dotenv.config();
+// let port = process.env.PORT || 9041;
 let port = process.env.PORT || 9041;
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
 let bodyParser = require('body-parser');
 let mongoUrl = "mongodb+srv://test:XKuhQ4x3x1CvkUag@cluster0.mwoz2jr.mongodb.net/?retryWrites=true&w=majority";
+// let mongoUrl = "mongodb://localhost:27017";
 let db;
 let cors = require('cors');
 
@@ -233,6 +235,15 @@ app.get('/viewOrders',(req,res)=>{
     })
 })
 
+// view orders as per username
+app.get('/viewOrders/:user_name', (req, res) => {
+    let user_name = req.params.user_name;
+    db.collection('orders').find({'user_name':user_name}).toArray((err, data) => {
+        if (err) throw err;
+        res.send(data)
+    })
+})
+
 //update orders
 app.put('/updateOrder/:id',(req,res)=>{
     let oid = Number(req.params.id);
@@ -241,8 +252,8 @@ app.put('/updateOrder/:id',(req,res)=>{
         {
             $set:{
                 "status":req.body.status,
-                "bank_name":req.body.bank_name,
-                "date":req.body.date
+                "date":req.body.date,
+                "payment_id":req.body.payment_id
             }
         },(err,data)=>{
             if(err) throw err
@@ -260,7 +271,11 @@ app.get('/homepage/:section',(req,res) => {
 })
 
 // connection with db
-MongoClient.connect(mongoUrl, (err, client) => {
+MongoClient.connect(mongoUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 50000 
+},(err, client) => {
     if (err) console.log('Error while connecting');
     db = client.db("Amazon_clone");
     app.listen(port, (err) => {
