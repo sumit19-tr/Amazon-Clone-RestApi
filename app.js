@@ -2,8 +2,8 @@ let express = require('express');
 let app = express();
 let dotenv = require("dotenv");
 dotenv.config();
+let port = 9041;
 // let port = process.env.PORT || 9041;
-let port = process.env.PORT || 9041;
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
 let bodyParser = require('body-parser');
@@ -138,7 +138,7 @@ app.get('/mobiless', (req, res) => {
 //Listing page filter
 app.get('/filter/:category_id', (req, res) => {
     let category_id = Number(req.params.category_id);
-    let brand_id = Number(req.query.brand_id);
+    let brand_id = req.query.brand_id;
     let lprice = Number(req.query.lprice)
     let hprice = Number(req.query.hprice)
     let H_discount = Number(req.query.H_discount)
@@ -149,9 +149,12 @@ app.get('/filter/:category_id', (req, res) => {
     let query = {}
 
     if (brand_id) {
+
+        let brandArray = brand_id.split(',').map(Number);
+
         query = {
             "category_id": category_id,
-            "brand.brand_id": brand_id
+            "brand.brand_id": { $in: brandArray }
         }
     }
     else if (h_Rating && l_Rating) {

@@ -1,7 +1,7 @@
 # page 1
 > list of category
   http://localhost:9041/catagory 
-  https://amazon-clone-restapi-production.up.railway.app/catagory 
+  https://amazon-clone-restapi.onrender.com/catagory 
 
 > list of product
   http://localhost:9041/product
@@ -35,6 +35,8 @@
 > list of product wrt to category & Brand
   http://localhost:9041/filter/1?brand_id=2
   https://amazon-clone-restapi-production.up.railway.app/filter/1?brand_id=2
+
+  http://localhost:9041/filter/1?brand_id=3,2,1
 
 > list of product wrt to category & Cost
   http://localhost:9041/filter/1?lprice=5000&hprice=10000
@@ -138,6 +140,7 @@ login api
 
 ---------------------Register--------------------------------------------
 (POST) > http://localhost:9091/api/auth/register
+         https://amazonclone-loginapi.onrender.com/ 
 (body) => { 
     "name": "rahul kumar",
     "email":"rahul@gmail.com",
