@@ -5,68 +5,68 @@
 
 > list of product
   http://localhost:9041/product
-  https://amazon-clone-restapi-production.up.railway.app/product
+   https://amazon-clone-restapi.onrender.com/product
 
 > get products wrt product_Id
   http://localhost:9041/product/:id
-  https://amazon-clone-restapi-production.up.railway.app/product/:id
+   https://amazon-clone-restapi.onrender.com/product/:id
 
 >get products wrt category_id
 (GET)http://localhost:9041/products/1
-     https://amazon-clone-restapi-production.up.railway.app/products/1
+      https://amazon-clone-restapi.onrender.com/products/1
 
 > list of homepage product wrt section name
   http://localhost:9041/homepageContentSection1/:section
-  https://amazon-clone-restapi-production.up.railway.app/
+   https://amazon-clone-restapi.onrender.com/
 
 > get multiple product wrt array of productId
   (GET)http://localhost:9041/products?product_ids=1,27,50
-  https://amazon-clone-restapi-production.up.railway.app/
+   https://amazon-clone-restapi.onrender.com/
 
 # page 2
 > list of product wrt to category
   http://localhost:9041/filter/1
-  https://amazon-clone-restapi-production.up.railway.app/filter/1
+   https://amazon-clone-restapi.onrender.com/filter/1
 
 > list of category wrt id
   http://localhost:9041/catagory/1
-  https://amazon-clone-restapi-production.up.railway.app/catagory/1
+   https://amazon-clone-restapi.onrender.com/catagory/1
 
 > list of product wrt to category & Brand
   http://localhost:9041/filter/1?brand_id=2
-  https://amazon-clone-restapi-production.up.railway.app/filter/1?brand_id=2
+   https://amazon-clone-restapi.onrender.com/filter/1?brand_id=2
 
   http://localhost:9041/filter/1?brand_id=3,2,1
 
 > list of product wrt to category & Cost
   http://localhost:9041/filter/1?lprice=5000&hprice=10000
-  https://amazon-clone-restapi-production.up.railway.app/filter/1?lprice=5000&hprice=10000
+   https://amazon-clone-restapi.onrender.com/filter/1?lprice=5000&hprice=10000
 
 > list of product wrt to category & discount
   http://localhost:9041/filter/1?L_discount=30&H_discount=90
-  https://amazon-clone-restapi-production.up.railway.app/filter/1?L_discount=30&H_discount=90
+   https://amazon-clone-restapi.onrender.com/filter/1?L_discount=30&H_discount=90
 
 > list of product wrt to category & rating
   http://localhost:9041/filter/1?l_Rating=2&h_Rating=4
-  https://amazon-clone-restapi-production.up.railway.app/filter/1?l_Rating=2&h_Rating=4
+   https://amazon-clone-restapi.onrender.com/filter/1?l_Rating=2&h_Rating=4
 
 > list of Sort on basis of price
   http://localhost:9344/filter/1?hcost=600&lcost=100&sort=-1
-  https://amazon-clone-restapi-production.up.railway.app/filter/1?hcost=600&lcost=100&sort=-1
+   https://amazon-clone-restapi.onrender.com/filter/1?hcost=600&lcost=100&sort=-1
 
 # page 3
 > details of product wrt product Id
   http://localhost:9041/details/1 
-  https://amazon-clone-restapi-production.up.railway.app/details/1 
+   https://amazon-clone-restapi.onrender.com/details/1 
 
 # page 4 
 > order details 
   http://localhost:9041/order/1
-  https://amazon-clone-restapi-production.up.railway.app/order/1
+   https://amazon-clone-restapi.onrender.com/order/1
 
 > add to cart
   POST-> http://localhost:9041/addtocart
-          https://amazon-clone-restapi-production.up.railway.app/addtocart
+           https://amazon-clone-restapi.onrender.com/addtocart
 
 
 > cart items w r t add to cart

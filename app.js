@@ -2,8 +2,8 @@ let express = require('express');
 let app = express();
 let dotenv = require("dotenv");
 dotenv.config();
-// let port = 9041;
-let port = process.env.PORT || 9041;
+let port = 9041;
+// let port = process.env.PORT || 9041;
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
 let bodyParser = require('body-parser');
@@ -259,7 +259,16 @@ app.put('/updateOrder/:id',(req,res)=>{
                 "payment_id":req.body.payment_id
             }
         },(err,data)=>{
-            if(err) throw err
+           if(err){
+                return res.status(500).send(err);
+            }
+
+            console.log(result);
+
+            if(result.matchedCount === 0){
+                return res.send("No Order Found");
+            }
+
             res.send("Order Updated successfully");
         }
     )
