@@ -259,16 +259,7 @@ app.put('/updateOrder/:id',(req,res)=>{
                 "payment_id":req.body.payment_id
             }
         },(err,data)=>{
-           if(err){
-                return res.status(500).send(err);
-            }
-
-            console.log(result);
-
-            if(result.matchedCount === 0){
-                return res.send("No Order Found");
-            }
-
+            if(err) throw err
             res.send("Order Updated successfully");
         }
     )
